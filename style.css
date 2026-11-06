@@ -1,0 +1,270 @@
+/* ==========================================================
+   Portfolio Loïc PASKIEWICZ – thème sombre, tons bleus
+   Pour changer les couleurs, modifier uniquement :root
+   ========================================================== */
+
+:root {
+  --bg: #0a1226;          /* fond principal (bleu nuit) */
+  --bg-alt: #0e1a36;      /* sections alternées */
+  --surface: #14244a;     /* cartes */
+  --border: #24386b;
+  --text: #e8eefb;
+  --muted: #9fb1d6;
+  --accent: #5aa9ff;      /* bleu clair : liens, titres de section */
+  --accent-strong: #2f6fed; /* bleu vif : boutons */
+  --radius: 12px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
+  line-height: 1.65;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+a { color: var(--accent); }
+a:hover { color: #9acbff; }
+a:focus-visible, .btn:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.wrap { max-width: 1060px; margin: 0 auto; padding: 0 1.25rem; }
+
+/* ---------- En-tête / navigation ---------- */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(10, 18, 38, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+}
+header .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: .5rem 1.5rem;
+  padding-top: .8rem;
+  padding-bottom: .8rem;
+}
+.brand {
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-decoration: none;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .25rem;
+  margin: 0;
+  padding: 0;
+}
+nav a {
+  display: block;
+  padding: .35rem .7rem;
+  border-radius: 8px;
+  color: var(--text);
+  text-decoration: none;
+  font-size: .95rem;
+}
+nav a:hover { background: var(--surface); color: var(--accent); }
+
+/* ---------- Hero ---------- */
+.hero {
+  padding: 4.5rem 0 4rem;
+  background:
+    radial-gradient(ellipse at 80% 0%, rgba(47, 111, 237, .25), transparent 60%),
+    var(--bg);
+}
+.hero .wrap {
+  display: grid;
+  grid-template-columns: 1.2fr .8fr;
+  gap: 3rem;
+  align-items: center;
+}
+.hero h1 {
+  font-size: clamp(2rem, 4.5vw, 3.1rem);
+  line-height: 1.15;
+  margin: 0 0 1rem;
+  color: #fff;
+}
+.lead { font-size: 1.15rem; color: var(--muted); max-width: 60ch; }
+.photo {
+  width: 100%;
+  max-width: 380px;
+  height: auto;
+  justify-self: center;
+  border-radius: 20px;
+  border: 2px solid var(--border);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, .45);
+  object-fit: cover;
+}
+
+/* ---------- Boutons ---------- */
+.btns { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 1.5rem; }
+.btn {
+  display: inline-block;
+  padding: .75rem 1.3rem;
+  border-radius: 10px;
+  background: var(--accent-strong);
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  border: 2px solid var(--accent-strong);
+  transition: background .2s, border-color .2s;
+}
+.btn:hover { background: #4a86f5; border-color: #4a86f5; color: #fff; }
+.btn.alt { background: transparent; border-color: var(--accent); color: var(--accent); }
+.btn.alt:hover { background: rgba(90, 169, 255, .12); color: #9acbff; }
+
+/* ---------- Sections ---------- */
+section { padding: 4rem 0; }
+section:nth-of-type(even) { background: var(--bg-alt); }
+
+h2 {
+  font-size: 1.9rem;
+  margin: 0 0 1.2rem;
+  color: var(--accent);
+}
+h3 { margin: 0 0 .5rem; color: #fff; font-size: 1.15rem; }
+h3.sub { margin: 2rem 0 1rem; font-size: 1.25rem; }
+.intro { color: var(--muted); max-width: 70ch; margin: 0 0 1.5rem; }
+.prose { max-width: 70ch; margin: 0 0 1rem; }
+
+/* ---------- Grille et cartes ---------- */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.2rem;
+}
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.3rem;
+}
+.card p { margin: 0 0 .8rem; color: var(--muted); }
+
+.tag {
+  display: inline-block;
+  margin-bottom: .6rem;
+  padding: .15rem .65rem;
+  border-radius: 999px;
+  background: rgba(90, 169, 255, .15);
+  color: var(--accent);
+  font-size: .8rem;
+  font-weight: 600;
+}
+.more {
+  display: inline-block;
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 2px solid var(--accent);
+}
+.more:hover { border-color: #9acbff; }
+
+/* ---------- Frise (formations) ---------- */
+.timeline {
+  list-style: none;
+  margin: 2rem 0 0;
+  padding: 0 0 0 1.5rem;
+  border-left: 2px solid var(--border);
+}
+.timeline li {
+  position: relative;
+  padding-bottom: 1.5rem;
+  color: var(--muted);
+}
+.timeline li::before {
+  content: "";
+  position: absolute;
+  left: calc(-1.5rem - 7px);
+  top: .4rem;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid var(--bg);
+}
+.timeline time { display: block; color: var(--accent); font-weight: 600; font-size: .9rem; }
+.timeline h3 { margin: .1rem 0; }
+
+/* ---------- Listes ---------- */
+.checks { list-style: none; padding: 0; margin: 0; }
+.checks li { position: relative; padding-left: 1.7rem; margin-bottom: .6rem; }
+.checks li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.skills {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .6rem;
+}
+.skills li {
+  padding: .45rem .9rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: .95rem;
+}
+
+.plain { margin: 0; padding-left: 1.1rem; color: var(--muted); }
+.plain li { margin-bottom: .35rem; }
+
+/* ---------- CV ---------- */
+img.cv {
+  width: 100%;
+  max-width: 720px;
+  margin: 1.5rem auto 0;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, .4);
+}
+
+/* ---------- Contact ---------- */
+.mail { font-size: 1.3rem; margin: 0 0 1rem; }
+
+/* ---------- Pied de page ---------- */
+footer {
+  padding: 2rem 0;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: .9rem;
+}
+footer .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: .5rem 1rem;
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 760px) {
+  .hero { padding: 2.5rem 0; }
+  .hero .wrap { grid-template-columns: 1fr; gap: 2rem; }
+  .photo { max-width: 280px; }
+  section { padding: 3rem 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; }
+}
