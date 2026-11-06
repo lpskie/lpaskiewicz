@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Loïc Paskiewicz</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #34495e;
+            --accent-color: #3498db;
+            --accent-hover: #2980b9;
+            --text-color: #333;
+            --bg-color: #f4f4f4;
+            --sidebar-bg: #2c3e50;
+            --sidebar-text: #ecf0f1;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        /* Barre d'action en haut (Retour et Téléchargement) */
+        .top-actions {
+            max-width: 1000px;
+            margin: 0 auto 20px auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 10px 25px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(52, 152, 219, 0.3);
+            border: none;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--accent-color);
+            border: 2px solid var(--accent-color);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        /* Conteneur principal du CV */
+        .container {
+            display: flex;
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        /* Sidebar Styles */
+        .sidebar {
+            width: 300px;
+            background-color: var(--sidebar-bg);
+            color: var(--sidebar-text);
+            padding: 30px;
+            flex-shrink: 0;
+        }
+
+        .profile-photo {
+            width: 150px;
+            height: 150px;
+            background-color: #ddd;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: block;
+            object-fit: cover;
+            border: 4px solid var(--accent-color);
+        }
+
+        .sidebar h2 {
+            color: var(--accent-color);
+            font-size: 1.2rem;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 5px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .contact-info, .skills-list, .languages-list, .interests-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .contact-info li { margin-bottom: 10px; font-size: 0.9rem; }
+        .contact-info strong { color: var(--accent-color); }
+        .contact-info a { color: var(--sidebar-text); text-decoration: none; }
+        .contact-info a:hover { color: var(--accent-color); }
+        
+        .skills-list li { margin-bottom: 15px; }
+        .skills-sub {
+            display: block;
+            font-size: 0.85rem;
+            opacity: 0.8;
+            margin-top: 2px;
+        }
+
+        /* Main Content Styles */
+        .main-content {
+            flex-grow: 1;
+            padding: 40px;
+        }
+
+        header {
+            margin-bottom: 40px;
+            border-bottom: 2px solid var(--bg-color);
+            padding-bottom: 20px;
+        }
+
+        header h1 {
+            margin: 0;
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        header .title {
+            font-size: 1.2rem;
+            color: var(--accent-color);
+            font-weight: bold;
+            margin-top: 5px;
+        }
+
+        .section-title {
+            color: var(--secondary-color);
+            border-left: 5px solid var(--accent-color);
+            padding-left: 15px;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            font-size: 1.3rem;
+        }
+
+        .experience-item, .education-item { margin-bottom: 25px; }
+
+        .job-header, .edu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 5px;
+        }
+
+        .job-title {
+            font-weight: bold;
+            font-size: 1.1rem;
+            color: var(--primary-color);
+        }
+
+        .company { font-style: italic; color: #666; }
+        .date {
+            color: var(--accent-color);
+            font-weight: bold;
+            font-size: 0.9rem;
+            min-width: 120px;
+            text-align: right;
+        }
+        .description { margin-top: 5px; font-size: 0.95rem; }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .top-actions { flex-direction: column; gap: 15px; }
+            .container { flex-direction: column; }
+            .sidebar { width: auto; padding: 20px; }
+            .main-content { padding: 20px; }
+            .job-header, .edu-header { flex-direction: column; }
+            .date { text-align: left; margin-bottom: 5px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="top-actions">
+    <a href="index.html" class="btn btn-outline">⬅ Retour au Portfolio</a>
+    <a href="cv.pdf" target="_blank" class="btn">📥 Télécharger le PDF</a>
+</div>
+
+<div class="container">
+    <aside class="sidebar">
+        <img src="moi mewo.jpg" alt="Loïc Paskiewicz" class="profile-photo">
+
+        <ul class="contact-info">
+            <li><strong>📍</strong> Saint-Avold</li>
+            <li><strong>📞</strong> 06 42 75 57 16</li>
+            <li>✉️ <a href="mailto:lpskie@gmx.com">lpskie@gmx.com</a></li>
+            <li>🔗 <a href="https://www.linkedin.com/in/loïc-paskiewicz-340488150/" target="_blank">Profil LinkedIn</a></li>
+            <br>
+            <li><strong>🚗</strong> Véhiculé</li>
+            <li><strong>🎂</strong> 35 ans</li>
+        </ul>
+
+        <h2>Atouts</h2>
+        <ul class="skills-list">
+            <li>✅ Sérieux</li>
+            <li>✅ Rigoureux</li>
+            <li>✅ Organisé</li>
+        </ul>
+
+        <h2>Langues</h2>
+        <ul class="languages-list">
+            <li>
+                <strong>Anglais (B2.2 CEFR B2)</strong>
+                <span class="skills-sub">Très bonne compréhension orale/écrite, bonne expression orale.</span>
+            </li>
+            <li>
+                <strong>Allemand</strong>
+                <span class="skills-sub">Compréhension et expression basique.</span>
+            </li>
+        </ul>
+
+        <h2>Centres d'intérêt</h2>
+        <ul class="interests-list">
+            <li>🎮 Jeux vidéo</li>
+            <li>💻 Nouvelles technologies</li>
+            <li>🏀 Basket-ball</li>
+        </ul>
+    </aside>
+
+    <main class="main-content">
+        <header>
+            <h1>Loïc Paskiewicz</h1>
+            <div class="title">Technicien Supérieur Systèmes et Réseaux</div>
+        </header>
+
+        <h2 class="section-title">Compétences Techniques</h2>
+        <div class="experience-item">
+            <ul style="padding-left: 20px;">
+                <li><strong>Systèmes :</strong> Windows 10/11, Server 2019/2022, Active Directory, Citrix (Installation, configuration, MCO).</li>
+                <li><strong>Réseaux :</strong> DHCP, DNS, Serveurs WEB IIS.</li>
+                <li><strong>Virtualisation :</strong> VMware WorkStation, Hyper-V, vSphere.</li>
+                <li><strong>Messagerie / Bureautique :</strong> Microsoft 365 (Exchange Online, Outlook, Teams, OneDrive, SharePoint, PowerApps), Suite Office.</li>
+                <li><strong>Gestion de parc :</strong> Méthode ITIL, GLPI (Serveur applicatif).</li>
+            </ul>
+        </div>
+
+        <h2 class="section-title">Expériences Professionnelles</h2>
+
+        <div class="experience-item">
+            <div class="job-header">
+                <span class="job-title">Alternant administrateur systèmes et réseaux</span>
+                <span class="date">09/2025 - Aujourd'hui</span>
+            </div>
+            <div class="company">CAR Avenue, Metz</div>
+        </div>
+
+        <div class="experience-item">
+            <div class="job-header">
+                <span class="job-title">Technicien informatique</span>
+                <span class="date">05/2025 - 08/2025</span>
+            </div>
+            <div class="company">Econocom, Metz</div>
+            <div class="description">Déploiement de clés YubiKey pour le département de la Moselle.</div>
+        </div>
+
+        <div class="experience-item">
+            <div class="job-header">
+                <span class="job-title">Assistant technicien systèmes et réseaux</span>
+                <span class="date">06/2023 - 01/2025</span>
+            </div>
+            <div class="company">Sostmeier, Valmont</div>
+        </div>
+
+        <div class="experience-item">
+            <div class="job-header">
+                <span class="job-title">Stagiaire Informatique</span>
+                <span class="date">04/2023 - 05/2023</span>
+            </div>
+            <div class="company">Arkema, Saint-Avold</div>
+            <div class="description">Analyse de fichiers sur un serveur et gestion documentaire.</div>
+        </div>
+
+        <div class="experience-item">
+            <div class="job-header">
+                <span class="job-title">Vendeur en téléphonie</span>
+                <span class="date">02/2022 - 09/2022</span>
+            </div>
+            <div class="company">Fischer Télécom, Saint-Avold</div>
+            <div class="description">Vente téléphonie SFR + Déploiement du dispositif Avantago en collaboration avec Fischer Télécom.</div>
+        </div>
+
+        <div class="experience-item">
+            <div class="job-header">
+                <span class="job-title">Chargé de clientèle</span>
+                <span class="date">11/2016 - 02/2022</span>
+            </div>
+            <div class="company">ComdataGroup, Freyming-Merlebach</div>
+            <div class="description">Pour SFR, Bayard Presse, Le Point, PlayBac Presse.</div>
+        </div>
+
+        <div class="experience-item">
+            <div class="job-header">
+                <span class="job-title">Employé commercial Fruits & Légumes</span>
+                <span class="date">07/2015 - 09/2015</span>
+            </div>
+            <div class="company">Super U, Valmont</div>
+        </div>
+        
+        <div class="experience-item">
+            <div class="job-header">
+                <span class="job-title">Missions intérimaires - Opérateur de production</span>
+                <span class="date">2013 - 2014</span>
+            </div>
+        </div>
+
+        <h2 class="section-title">Formations</h2>
+
+        <div class="education-item">
+            <div class="edu-header">
+                <span class="job-title">BTS Services informatiques aux organisations</span>
+                <span class="date">2025 - 2027</span>
+            </div>
+            <div class="company">Campus Mewo, Metz</div>
+            <div class="description"><i>Option Solutions d’infrastructure, systèmes et réseaux</i></div>
+        </div>
+
+        <div class="education-item">
+            <div class="edu-header">
+                <span class="job-title">BTS Communication</span>
+                <span class="date">2010 - 2012</span>
+            </div>
+            <div class="company">Lycée de la communication, Metz</div>
+            <div class="description">Stage au service communication en mairie, Saint-Avold.</div>
+        </div>
+
+    </main>
+</div>
+
+</body>
+</html>
