@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mes réalisations - Loïc Paskiewicz | BTS SIO SISR</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #3498db;
+            --accent-hover: #2980b9;
+            --bg-color: #f8f9fa;
+            --section-bg: #ffffff;
+            --text-color: #333333;
+            --text-light: #666666;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            padding: 20px 50px;
+            align-items: center;
+        }
+        .logo { font-weight: bold; font-size: 1.2rem; color: var(--primary-color); text-decoration: none; }
+        .nav-links a { text-decoration: none; color: var(--text-color); margin-left: 30px; font-weight: 500; transition: color 0.3s; }
+        .nav-links a:hover, .nav-links a.active { color: var(--accent-color); }
+
+        /* Section */
+        section { padding: 120px 20px 60px; max-width: 900px; margin: 0 auto; }
+        .section-title { color: var(--primary-color); font-size: 2rem; text-align: center; margin-bottom: 20px; position: relative; }
+        .section-title::after { content: ''; display: block; width: 50px; height: 3px; background: var(--accent-color); margin: 15px auto 0; }
+        .intro { text-align: center; color: var(--text-light); margin-bottom: 40px; }
+
+        /* Liste des documents */
+        .doc-list { list-style: none; display: grid; gap: 15px; }
+        .doc-list a {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            background: white;
+            padding: 20px 25px;
+            border-radius: 12px;
+            border-left: 4px solid var(--accent-color);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            text-decoration: none;
+            color: var(--text-color);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .doc-list a:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(52,152,219,0.2); }
+        .doc-icon { font-size: 1.8rem; }
+        .doc-title { font-weight: 600; color: var(--primary-color); display: block; }
+        .doc-desc { font-size: 0.9rem; color: var(--text-light); display: block; }
+        .doc-open { margin-left: auto; color: var(--accent-color); font-weight: 600; white-space: nowrap; }
+
+        .back { display: inline-block; margin-top: 40px; color: var(--accent-color); text-decoration: none; font-weight: 600; }
+        .back:hover { color: var(--accent-hover); }
+
+        footer { background-color: var(--primary-color); color: white; text-align: center; padding: 30px 20px; margin-top: 20px; }
+
+        @media (max-width: 768px) {
+            nav { flex-direction: column; padding: 15px; }
+            .nav-links { margin-top: 15px; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+            .nav-links a { margin: 0 5px; font-size: 0.9rem; }
+            section { padding-top: 160px; }
+            .doc-list a { flex-wrap: wrap; }
+            .doc-open { margin-left: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a class="logo" href="index.html">Loïc Paskiewicz</a>
+        <div class="nav-links">
+            <a href="index.html#accueil">Accueil</a>
+            <a href="cv.html">Mon CV</a>
+            <a href="index.html#formation">Formation BTS</a>
+            <a href="realisations.html" class="active">Réalisations</a>
+            <a href="index.html#contact">Contact</a>
+        </div>
+    </nav>
+
+    <section id="realisations">
+        <h1 class="section-title">Mes Réalisations</h1>
+        <p class="intro">Mes TP et comptes rendus au format PDF. Cliquez sur un document pour l'ouvrir dans un nouvel onglet.</p>
+
+        <!--
+          POUR AJOUTER UN DOCUMENT : copier un bloc <li> ... </li> et changer :
+            1. le nom du fichier dans href="docs/..."  (identique au nom dans GitHub)
+            2. le titre
+            3. la description
+        -->
+        <ul class="doc-list">
+
+            <li>
+                <a href="docs/Compte%20rendu%20installation%20Samba%20sur%20un%20serveur%20Ubuntu%20par%20Lo%C3%AFc%20PASKIEWICZ.pdf" target="_blank" rel="noopener">
+                    <span class="doc-icon">📄</span>
+                    <span>
+                        <span class="doc-title">Compte rendu : installation de Samba sur Ubuntu</span>
+                        <span class="doc-desc">Installation et configuration d'un serveur de fichiers Samba sur un serveur Ubuntu.</span>
+                    </span>
+                    <span class="doc-open">Ouvrir le PDF →</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="docs/Services%20r%C3%A9seau%20Linux%20Serveur%20Web%20NGINX%20%2B%20Serveur%20de%20fichiers%20SAMBA%20par%20Loic%20PASKIEWICZ.pdf" target="_blank" rel="noopener">
+                    <span class="doc-icon">📄</span>
+                    <span>
+                        <span class="doc-title">Services réseau Linux : serveur web NGINX et serveur de fichiers Samba</span>
+                        <span class="doc-desc">Mise en place d'un serveur web NGINX et d'un serveur de fichiers Samba sous Linux.</span>
+                    </span>
+                    <span class="doc-open">Ouvrir le PDF →</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="docs/TP%20Assistance%20%C3%A0%20un%20utilisateur%20Loic%20PASKIEWICZ.pdf" target="_blank" rel="noopener">
+                    <span class="doc-icon">📄</span>
+                    <span>
+                        <span class="doc-title">TP : Assistance à un utilisateur</span>
+                        <span class="doc-desc">Prise en charge et résolution d'une demande d'assistance utilisateur.</span>
+                    </span>
+                    <span class="doc-open">Ouvrir le PDF →</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="docs/TP%20Installation%20de%20pfSense%20Lo%C3%AFc%20PASKIEWICZ.pdf" target="_blank" rel="noopener">
+                    <span class="doc-icon">📄</span>
+                    <span>
+                        <span class="doc-title">TP : Installation de pfSense</span>
+                        <span class="doc-desc">Installation et configuration d'un pare-feu pfSense.</span>
+                    </span>
+                    <span class="doc-open">Ouvrir le PDF →</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="docs/TP%20WordPress%20Lo%C3%AFc%20PASKIEWICZ.pdf" target="_blank" rel="noopener">
+                    <span class="doc-icon">📄</span>
+                    <span>
+                        <span class="doc-title">TP : WordPress</span>
+                        <span class="doc-desc">Déploiement et configuration d'un site WordPress.</span>
+                    </span>
+                    <span class="doc-open">Ouvrir le PDF →</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="docs/TP2%20D%C3%A9couverte%20SRV%20Lo%C3%AFc%20Paskiewicz.pdf" target="_blank" rel="noopener">
+                    <span class="doc-icon">📄</span>
+                    <span>
+                        <span class="doc-title">TP2 : Découverte SRV</span>
+                        <span class="doc-desc">Découverte et prise en main d'un serveur.</span>
+                    </span>
+                    <span class="doc-open">Ouvrir le PDF →</span>
+                </a>
+            </li>
+
+        </ul>
+
+        <a class="back" href="index.html">← Retour à l'accueil</a>
+    </section>
+
+    <footer>
+        <p>© 2026 Loïc Paskiewicz - Tous droits réservés. | Mentions légales</p>
+    </footer>
+
+</body>
+</html>
